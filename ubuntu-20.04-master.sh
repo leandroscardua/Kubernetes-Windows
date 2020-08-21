@@ -26,7 +26,7 @@ sudo apt update && sudo apt install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 
 # Initialize kubeadm
-sudo kubeadm init
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --service-cidr=10.96.0.0/12
 
 # Enable non-root use kubeadm
 mkdir -p $HOME/.kube
@@ -36,6 +36,8 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 #Installing a Pod network add-on / Instalando Pod Network Addon
 
 wget https://raw.githubusercontent.com/leandroscardua/Kubernetes-Windows/master/kube-flannel.yml
+
+kubectl apply -f kube-flannel.yml
 
 
 
