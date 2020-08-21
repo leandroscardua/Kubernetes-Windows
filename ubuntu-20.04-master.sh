@@ -2,24 +2,24 @@ sudo hostnamectl set-hostname k8s-master
 
 sudo apt-get update && sudo apt upgrade && sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
 
-# Enable netfilter / habilitar netfilter
+# Enable netfilter 
 sudo modprobe br_netfilter
 
-# Disable swap / Disabilitando swap
+# Disable swap 
 sudo swapoff -a
 
-# Enables IP Forward / Habilitando redirecionamento
+# Enables IP Forward 
 sudo sysctl -w net.ipv4.ip_forward=1
 sudo sysctl net.bridge.bridge-nf-call-iptables=1
 sudo sysctl --system
 
-# Install docker / Instalando o Docker
+# Install docker 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 sudo apt update && apt-cache policy docker-ce
 sudo usermod -aG docker ${USER}
 
-# install Kubernetes / Instalando o Kubernetes
+# install Kubernetes /
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 sudo apt update && sudo apt install -y kubelet kubeadm kubectl
@@ -33,11 +33,15 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
-#Installing a Pod network add-on / Instalando Pod Network Addon
+#Installing a Pod network add-on 
 
 wget https://raw.githubusercontent.com/leandroscardua/Kubernetes-Windows/master/kube-flannel.yml
 
 kubectl apply -f kube-flannel.yml
+
+# Install Windows Flannel and kube-proxy DaemonSet, current version 1.18.0
+curl -L https://github.com/kubernetes-sigs/sig-windows-tools/releases/latest/download/kube-proxy.yml | sed 's/VERSION/v1.18.0/g' | kubectl apply -f -
+kubectl apply -f https://github.com/kubernetes-sigs/sig-windows-tools/releases/latest/download/flannel-overlay.yml
 
 
 
