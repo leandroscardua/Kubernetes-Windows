@@ -35,7 +35,9 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 #Installing a Pod network add-on / Instalando Pod Network Addon
 
-wget https://raw.githubusercontent.com/leandroscardua/Kubernetes-Windows/master/kube-flannel-hybrid.yaml
+wget https://raw.githubusercontent.com/leandroscardua/Kubernetes-Windows/master/kube-flannel.yml
+
+
 
 
 
