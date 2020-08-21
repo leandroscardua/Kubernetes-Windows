@@ -10,6 +10,7 @@ sudo swapoff -a
 
 # Enables IP Forward / Habilitando redirecionamento
 sudo sysctl -w net.ipv4.ip_forward=1
+sudo sysctl net.bridge.bridge-nf-call-iptables=1
 sudo sysctl --system
 
 # Install docker / Instalando o Docker
@@ -24,11 +25,6 @@ sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 sudo apt update && sudo apt install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 
-#cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
-#net.bridge.bridge-nf-call-ip6tables = 1
-#net.bridge.bridge-nf-call-iptables = 1
-#EOF
-
 # Initialize kubeadm
 sudo kubeadm init
 
@@ -38,6 +34,8 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 #Installing a Pod network add-on / Instalando Pod Network Addon
+
+wget https://raw.githubusercontent.com/leandroscardua/Kubernetes-Windows/master/kube-flannel-hybrid.yaml
 
 
 
