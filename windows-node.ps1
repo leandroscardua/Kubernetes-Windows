@@ -4,7 +4,7 @@ Rename-Computer -NewName "win19-n1" | Out-Null
 
 Write-Host "Rename the network interface to Ethernet"
 # Rename network interface to Ethernet
-Rename-NetAdapter -Name Get-NetAdapter -Name * -Physical -NewName "Ethernet" | Out-Null
+Rename-NetAdapter -Name (Get-NetAdapter -Name * -Physical) -NewName "Ethernet" | Out-Null
 
 Write-Host "Enabling Winrm Access"
 # Enable winrm access 
@@ -41,7 +41,7 @@ curl.exe -LO https://github.com/kubernetes-sigs/sig-windows-tools/releases/lates
 
 pause
 
-Write-Host "Please, hit enter to reboot the server to complete the configuration"
+Write-Host "Please, Hit enter to reboot the server to complete the configuration"
 
 Restart-Computer
 
