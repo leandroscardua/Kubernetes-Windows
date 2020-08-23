@@ -31,17 +31,17 @@ Write-Host "Installing Windows Containers Feature"
 Install-WindowsFeature -Name Containers | Out-Null
 
 # Install the Docker Engine Enterprise on the Server
-Write-Host "Installing Docker Engine Enterprise"
+Write-Host "Installing Docker Engine"
 Install-Module -Name DockerMsftProvider -Repository PSGallery -Force | Out-Null
 
 # Install the client interface to manage the Docker Engine Enterprise
-Write-Host "Installing Interface de Gerenciamento of the Docker"
+Write-Host "Installing Docker Client"
 Install-Package -Name docker -ProviderName DockerMsftProvider -Force | Out-Null
 
 # Installing requirements on the Windows Node to join Kubernetes Cluster
 
 curl.exe -LO https://github.com/kubernetes-sigs/sig-windows-tools/releases/latest/download/PrepareNode.ps1
-.\PrepareNode.ps1 -KubernetesVersion v1.18.0
+.\PrepareNode.ps1 -KubernetesVersion v1.18.0 | Out-Null
 
 pause
 
