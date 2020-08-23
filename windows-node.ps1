@@ -12,10 +12,7 @@ Set-WSManQuickConfig -Force
 
 Write-Host "Disabling Windows Updates"
 #Disable Windows Update
-Net stop wuauserv
-%systemroot%\system32\Cscript %systemroot%\system32\scregedit.wsf /AU 1
-Net start wuauserv
-Set-Service -Name "wuauserv" -StartupType Disabled -Status Stopped -Force | Out-Null
+Set-Service -Name "wuauserv" -StartupType Disabled -Status Stopped | Out-Null
 
 Write-Host "Uninstalling Windows-Defender Feature"
 # Uninstall Windows Defender
