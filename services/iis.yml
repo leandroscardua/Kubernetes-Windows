@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iis
+spec:
+  selector:
+    matchLabels:
+      run: iis
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        run: iis
+    spec:
+      containers:
+      - name: iis
+        image: leandroscar/iis-windows-ltsc2019
+        ports:
+        - containerPort: 80
