@@ -1,3 +1,6 @@
+$ErrorActionPreference = 'Stop'
+$ProgressPreference = 'SilentlyContinue'
+
 Write-Host "Rename the computer to win19-n1"
 #Rename
 Rename-Computer -NewName "win19-n1" | Out-Null
