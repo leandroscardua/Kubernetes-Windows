@@ -4,15 +4,16 @@ Rename-Computer -NewName "win19-n1" | Out-Null
 
 Write-Host "Rename the network interface to Ethernet"
 # Rename network interface to Ethernet
-Rename-NetAdapter -Name (Get-NetAdapter -Name * -Physical) -NewName "Ethernet" | Out-Null
+Rename-NetAdapter -Name (Get-NetAdapter -Name * -Physical).Name -NewName "Ethernet" | Out-Null
 
 Write-Host "Enabling Winrm Access"
 # Enable winrm access 
-Set-WSManQuickConfig -Force
+Set-WSManQuickConfig -Force | Out-Null
 
 Write-Host "Disabling Windows Updates"
 #Disable Windows Update
-Set-Service -Name "wuauserv" -StartupType Disabled -Status Stopped | Out-Null
+Stop-Service -Name "wuauserv" -Force | Out-Null
+Set-Service -Name "wuauserv" -StartupType Disabled | Out-Null
 
 Write-Host "Uninstalling Windows-Defender Feature"
 # Uninstall Windows Defender
