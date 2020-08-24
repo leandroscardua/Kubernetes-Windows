@@ -9,5 +9,5 @@ curl.exe -LO https://raw.githubusercontent.com/leandroscardua/Kubernetes-Windows
 .\windows-node2.ps1 | Out-Null
 
 # Install K8s on Windows node 1 and 2
-curl.exe -LO https://github.com/kubernetes-sigs/sig-windows-tools/releases/latest/download/PrepareNode.ps1
-.\PrepareNode.ps1 -KubernetesVersion v1.18.0 | Out-Null
+curl.exe -LO https://github.com/leandroscardua/Kubernetes-Windows/blob/master/Install-k8s-windows.ps1
+.\Install-k8s-windows.ps1 | Out-Null
