@@ -15,22 +15,22 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  labels:
+    app: iis
   name: iis
 spec:
+  replicas: 2
   selector:
     matchLabels:
-      run: iis
-  replicas: 2
+      app: iis
   template:
     metadata:
       labels:
-        run: iis
+        app: iis
+      name: iis
     spec:
-      containers:
+     containers:
       - name: iis
         image: leandroscar/iis-windows-ltsc2019
-        ports:
-        - containerPort: 80
      nodeSelector:
       kubernetes.io/os: windows
-
