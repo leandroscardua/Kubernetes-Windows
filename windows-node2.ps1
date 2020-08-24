@@ -1,9 +1,9 @@
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
 
-Write-Host "Rename the computer to win19-n1"
+Write-Host "Rename the computer to win19-n2"
 #Rename
-Rename-Computer -NewName "win19-n1" | Out-Null
+Rename-Computer -NewName "win19-n2" | Out-Null
 
 Write-Host "Rename the network interface to Ethernet"
 # Rename network interface to Ethernet
