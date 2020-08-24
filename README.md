@@ -1,6 +1,6 @@
 # Kubernetes-Windows
 
-https://github.com/leandroscardua/Kubernetes-Windows/raw/master/Untitled%20Diagram.jpg
+![alt text](https://github.com/leandroscardua/Kubernetes-Windows/raw/master/Untitled%20Diagram.jpg?raw=true)
 
 # Installing requirements on the Windows Node to join Kubernetes Cluster node 1
 curl.exe -LO https://raw.githubusercontent.com/leandroscardua/Kubernetes-Windows/master/windows-node1.ps1
