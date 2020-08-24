@@ -1,6 +1,6 @@
 sudo hostnamectl set-hostname k8s-master
 
-sudo apt-get update && sudo apt upgrade && sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+sudo apt-get update && sudo apt upgrade -y && sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
 
 # Enable netfilter 
 sudo modprobe br_netfilter
