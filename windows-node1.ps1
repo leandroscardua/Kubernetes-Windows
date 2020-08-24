@@ -29,15 +29,8 @@ Install-Module -Name DockerMsftProvider -Repository PSGallery -Force | Out-Null
 Write-Host "Installing Docker Client"
 Install-Package -Name docker -ProviderName DockerMsftProvider -Force | Out-Null
 
-# Installing requirements on the Windows Node to join Kubernetes Cluster
-
-curl.exe -LO https://github.com/kubernetes-sigs/sig-windows-tools/releases/latest/download/PrepareNode.ps1
-.\PrepareNode.ps1 -KubernetesVersion v1.18.0 | Out-Null
-
 pause
 
 Write-Host "Please, Hit enter to reboot the server to complete the configuration"
 
 Restart-Computer
-
-
