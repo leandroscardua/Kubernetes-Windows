@@ -1,3 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: iis
+  labels:
+    app: iis
+spec:
+  ports:
+    # the port that this service should serve on
+    - port: 80
+      targetPort: 80
+  selector:
+    app: iis
+  type: NodePort
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -17,3 +32,6 @@ spec:
         image: leandroscar/iis-windows-ltsc2019
         ports:
         - containerPort: 80
+     nodeSelector:
+      kubernetes.io/os: windows
+
