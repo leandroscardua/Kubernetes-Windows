@@ -1,4 +1,4 @@
-sudo hostnamectl set-hostname k8s-master
+sudo hostnamectl set-hostname k8s-primary
 
 sudo apt-get update && sudo apt upgrade -y && sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
 
