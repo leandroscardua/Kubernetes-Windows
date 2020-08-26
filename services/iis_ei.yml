@@ -9,9 +9,9 @@ spec:
     app: iis_ei
   ports:
       name: http
-      protocol: tcp
+      protocol: TCP
       port: 80
-      targetPort: 9376
+      targetPort: 80
   externalIPs:
     - 192.168.218.50
 ---
