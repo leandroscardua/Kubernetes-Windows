@@ -5,6 +5,8 @@ metadata:
   labels:
     app: iis_ei
 spec:
+  selector:
+    app: iis_ei
   ports:
       name: http
       protocol: tcp
