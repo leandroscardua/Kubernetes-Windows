@@ -7,7 +7,7 @@ metadata:
 spec:
   ports:
       name: http
-      protocal: tcp
+      protocol: tcp
       port: 80
       targetPort: 9376
   externalIPs:
