@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: iis_ei
+  name: iis-ei
   labels:
-    app: iis_ei
+    app: iis-ei
 spec:
   selector:
-    app: iis_ei
+    app: iis-ei
   ports:
     - name: http
       protocol: TCP
@@ -19,21 +19,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: iis_ei
-  name: iis_ei
+    app: iis-ei
+  name: iis-ei
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: iis_ei
+      app: iis-ei
   template:
     metadata:
       labels:
-        app: iis_ei
-      name: iis_ei
+        app: iis-ei
+      name: iis-ei
     spec:
      containers:
-      - name: iis_ei
+      - name: iis-ei
         image: leandroscar/iis-windows-ltsc2019
      nodeSelector:
       kubernetes.io/os: windows
