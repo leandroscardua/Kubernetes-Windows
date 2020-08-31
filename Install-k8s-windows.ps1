@@ -1,7 +1,12 @@
+param(
+  [Parameter(Mandatory=$true)]
+  [String]$k8sversion
+)
+
 # Installing requirements on the Windows Node to join Kubernetes Cluster
 
 curl.exe -LO https://github.com/kubernetes-sigs/sig-windows-tools/releases/latest/download/PrepareNode.ps1
-.\PrepareNode.ps1 -KubernetesVersion v1.18.0 | Out-Null
+.\PrepareNode.ps1 -KubernetesVersion "$k8sversion" | Out-Null
 
 # install fix after reboot
 
@@ -18,9 +23,3 @@ $cmd = "C:\k\kubelet.exe $global:KubeletArgs --cert-dir=$env:SYSTEMDRIVE\var\lib
 
 Invoke-Expression $cmd
 }
-
-
-
-
-
-
