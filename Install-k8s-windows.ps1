@@ -2,7 +2,7 @@ param(
   [Parameter(Mandatory=$true)]
   [String]$k8sversion
 )
-#Enable Donwload
+#Enable Donwloadas
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 # Installing requirements on the Windows Node to join Kubernetes Cluster
