@@ -1,9 +1,9 @@
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
 param(
   [Parameter(Mandatory=$true)]
   [String]$k8sversion
 )
-
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 # Installing requirements on the Windows Node to join Kubernetes Cluster
 
 curl.exe -LO https://github.com/kubernetes-sigs/sig-windows-tools/releases/latest/download/PrepareNode.ps1
