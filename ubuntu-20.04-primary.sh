@@ -24,9 +24,9 @@ sudo usermod -aG docker ${USER}
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 sudo apt update
-sudo apt install -y kubelet=1.19.5-00
-sudo apt install -y kubeadm=1.19.5-00
-sudo apt install -y kubectl=1.19.5-00
+sudo apt install -y kubelet=$1
+sudo apt install -y kubeadm=$1
+sudo apt install -y kubectl=$1
 sudo apt-mark hold kubelet kubeadm kubectl
 
 # Enable autocomplete for kubectl
