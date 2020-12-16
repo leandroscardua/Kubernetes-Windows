@@ -23,7 +23,10 @@ sudo usermod -aG docker ${USER}
 # install Kubernetes /
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
-sudo apt update && sudo apt install -y kubelet kubeadm kubectl
+sudo apt update
+sudo apt install -y kubelet=1.19.5-00
+sudo apt install -y kubeadm=1.19.5-00
+sudo apt install -y kubectl=1.19.5-00
 sudo apt-mark hold kubelet kubeadm kubectl
 
 # Enable autocomplete for kubectl
@@ -47,15 +50,4 @@ kubectl apply -f kube-flannel.yml
 # Install Windows Flannel and kube-proxy DaemonSet, current version 1.18.0
 curl -L https://github.com/kubernetes-sigs/sig-windows-tools/releases/latest/download/kube-proxy.yml | sed 's/VERSION/v1.18.0/g' | kubectl apply -f -
 kubectl apply -f https://github.com/kubernetes-sigs/sig-windows-tools/releases/latest/download/flannel-overlay.yml
-
-
-
-
-
-
-
-
-
-
-
 
