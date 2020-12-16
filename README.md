@@ -5,8 +5,8 @@
 # Installing kubernetes on the Linux primary node to deploy a Kubernetes Cluster
 
 wget https://raw.githubusercontent.com/leandroscardua/Kubernetes-Windows/master/ubuntu-20.04-primary.sh
-chmod +x ubuntu-20.04-primary.sh
-./ubuntu-20.04-primary.sh
+&& chmod +x ubuntu-20.04-primary.sh
+&& ./ubuntu-20.04-primary.sh
 
 # Installing requirements on the Windows node 1
 curl.exe -LO https://raw.githubusercontent.com/leandroscardua/Kubernetes-Windows/master/windows-node.ps1
