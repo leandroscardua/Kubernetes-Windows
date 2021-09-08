@@ -8,7 +8,7 @@ param(
 # Installing requirements on the Windows Node to join Kubernetes Cluster
 
 curl.exe -LO https://github.com/kubernetes-sigs/sig-windows-tools/releases/download/v0.1.5/PrepareNode.ps1
-.\PrepareNode.ps1 -KubernetesVersion "$k8sversion" -ContainerRuntime Docker | Out-Null
+.\PrepareNode.ps1 -KubernetesVersion "$k8sversion" | Out-Null
 
 # install fix after reboot
 
