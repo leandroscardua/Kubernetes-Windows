@@ -21,11 +21,11 @@ curl.exe -LO https://raw.githubusercontent.com/leandroscardua/Kubernetes-Windows
 # Install K8s on Windows node 1
 curl.exe -LO https://raw.githubusercontent.com/leandroscardua/Kubernetes-Windows/master/Install-k8s-windows.ps1
 
-.\Install-k8s-windows.ps1 -k8sversion v1.19.5 -ContainerRuntime Docker | Out-Null
+.\Install-k8s-windows.ps1 -k8sversion v1.19.5 | Out-Null
 
 # Install K8s on Windows node 2
 curl.exe -LO https://raw.githubusercontent.com/leandroscardua/Kubernetes-Windows/master/Install-k8s-windows.ps1
 
-.\Install-k8s-windows.ps1 -k8sversion v1.19.5 -ContainerRuntime Docker | Out-Null
+.\Install-k8s-windows.ps1 -k8sversion v1.19.5 | Out-Null
 
 
