@@ -18,7 +18,7 @@ sudo sysctl --system
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 sudo apt update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 
 # Configure containerD
 sudo mkdir -p /etc/containerd
