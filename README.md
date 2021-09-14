@@ -6,7 +6,7 @@
 
 wget https://raw.githubusercontent.com/leandroscardua/Kubernetes-Windows/master/ubuntu-20.04-primary-docker.sh
 && chmod +x ubuntu-20.04-primary-docker.sh
-&& ./ubuntu-20.04-primary-docker.sh 1.19.5-00
+&& ./ubuntu-20.04-primary-docker.sh 1.22.1-00 v1.22.1
 
 # Installing requirements on the Windows node 1
 curl.exe -LO https://raw.githubusercontent.com/leandroscardua/Kubernetes-Windows/master/windows-node.ps1
