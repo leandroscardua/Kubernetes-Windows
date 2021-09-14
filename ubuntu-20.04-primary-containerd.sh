@@ -50,7 +50,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 wget https://raw.githubusercontent.com/leandroscardua/Kubernetes-Windows/master/kube-flannel.yml
 
-kubectl apply -f kube-flannel.yml
+sudo kubectl apply -f kube-flannel.yml
 
 # Install Windows Flannel and kube-proxy DaemonSet, current version 1.19.5
 curl -L https://github.com/kubernetes-sigs/sig-windows-tools/releases/download/v0.1.5/kube-proxy.yml | sed 's/VERSION/"$2"/g' | kubectl apply -f -
