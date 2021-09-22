@@ -20,6 +20,14 @@ sudo apt update && apt-cache policy docker-ce
 sudo apt install docker-ce -y
 sudo usermod -aG docker ${USER}
 
+# change cggroup to systemd
+cat <<EOF > /etc/docker/daemon.json
+{
+  "exec-opts": ["native.cgroupdriver=systemd"]
+}
+EOF
+sudo systemctl daemon-reload && systemctl restart docker
+
 # install Kubernetes /
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
