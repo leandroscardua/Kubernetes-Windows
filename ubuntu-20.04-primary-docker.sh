@@ -32,10 +32,9 @@ sudo systemctl daemon-reload && systemctl restart docker
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 sudo apt update
-sudo apt install -y kubelet="$1" --allow-change-held-packages --allow-downgrades -y
-sudo apt install -y kubeadm="$1" --allow-change-held-packages --allow-downgrades -y
-sudo apt install -y kubectl="$1" --allow-change-held-packages --allow-downgrades -y
-sudo apt-mark hold kubelet kubeadm kubectl
+sudo apt install -y kubelet
+sudo apt install -y kubeadm
+sudo apt install -y kubectl
 
 # Enable autocomplete for kubectl
 source <(kubectl completion bash)
@@ -50,12 +49,8 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 #Installing a Pod network add-on 
+curl -L https://raw.githubusercontent.com/leandroscardua/Kubernetes-Windows/master/kube-flannel.yml | kubectl apply -f -
 
-wget https://raw.githubusercontent.com/leandroscardua/Kubernetes-Windows/master/kube-flannel.yml
-
-kubectl apply -f kube-flannel.yml
-
-# Install Windows Flannel and kube-proxy DaemonSet, current version 1.19.5
-curl -L https://github.com/kubernetes-sigs/sig-windows-tools/releases/download/v0.1.5/kube-proxy.yml | sed 's/VERSION/"$2"/g' | kubectl apply -f -
-kubectl apply -f https://github.com/kubernetes-sigs/sig-windows-tools/releases/download/v0.1.5/flannel-overlay.yml
-
+# Install Windows Flannel and kube-proxy DaemonSet, current version 1.23.0
+curl -L https://github.com/kubernetes-sigs/sig-windows-tools/releases/latest/download/kube-proxy.yml | sed 's/VERSION/v1.23.0/g' | kubectl apply -f -
+kubectl apply -f https://github.com/kubernetes-sigs/sig-windows-tools/releases/latest/download/flannel-host-gw.yml
