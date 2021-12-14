@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: iis
+  labels:
+    app: iis
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: iis
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: iis
+  name: iis
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: iis
+  template:
+    metadata:
+      labels:
+	app: iis
+      name: iis
+    spec:
+     containers:
+      - name: iis
+        image: mcr.microsoft.com/dotnet/samples:aspnetapp
+     nodeSelector:
+      kubernetes.io/os: windows
