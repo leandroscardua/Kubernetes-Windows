@@ -27,7 +27,7 @@ spec:
   template:
     metadata:
       labels:
-	app: iis
+        app: iis
       name: iis
     spec:
      containers:
