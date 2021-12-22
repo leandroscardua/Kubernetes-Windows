@@ -34,6 +34,6 @@ spec:
     spec:
      containers:
       - name: iis-ei
-        image: leandroscar/iis-windows-ltsc2019
+        image: mcr.microsoft.com/dotnet/samples:aspnetapp
      nodeSelector:
       kubernetes.io/os: windows
