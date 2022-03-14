@@ -7,9 +7,9 @@ Write-Host "Rename the network interface to Ethernet"
 # Rename network interface to Ethernet
 Rename-NetAdapter -Name (Get-NetAdapter -Name * -Physical).Name -NewName "Ethernet" | Out-Null
 
-Write-Host "Uninstalling Windows-Defender Feature"
+#Write-Host "Uninstalling Windows-Defender Feature"
 # Uninstall Windows Defender
-Uninstall-WindowsFeature Windows-Defender -Remove | Out-Null
+#Uninstall-WindowsFeature Windows-Defender -Remove | Out-Null
 
 # Update the NuGet Module
 Write-Host "Updating The Nuget Package Management"
