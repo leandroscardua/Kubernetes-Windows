@@ -1,7 +1,7 @@
 $ErrorActionPreference = 'Stop'
-$ProgressPreference = 'SilentlyContinue'
+#$ProgressPreference = 'SilentlyContinue'
 
-[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
 
 Write-Host "Rename the network interface to Ethernet"
 # Rename network interface to Ethernet
@@ -9,7 +9,7 @@ Rename-NetAdapter -Name (Get-NetAdapter -Name * -Physical).Name -NewName "Ethern
 
 Write-Host "Uninstalling Windows-Defender Feature"
 # Uninstall Windows Defender
-Uninstall-WindowsFeature Windows-Defender | Out-Null
+Uninstall-WindowsFeature Windows-Defender -Remove | Out-Null
 
 # Update the NuGet Module
 Write-Host "Updating The Nuget Package Management"
