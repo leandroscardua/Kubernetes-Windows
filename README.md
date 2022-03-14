@@ -6,7 +6,7 @@
 
 wget https://raw.githubusercontent.com/leandroscardua/Kubernetes-Windows/master/ubuntu-20.04-primary-docker.sh
 && chmod +x ubuntu-20.04-primary-docker.sh
-&& ./ubuntu-20.04-primary-docker.sh 1.22.1-00 v1.22.1
+&& ./ubuntu-20.04-primary-docker.sh
 
 # Installing requirements on the Windows node 1
 curl.exe -LO https://raw.githubusercontent.com/leandroscardua/Kubernetes-Windows/master/windows-node.ps1
@@ -21,11 +21,11 @@ curl.exe -LO https://raw.githubusercontent.com/leandroscardua/Kubernetes-Windows
 # Install K8s on Windows node 1
 curl.exe -LO https://raw.githubusercontent.com/leandroscardua/Kubernetes-Windows/master/Install-k8s-windows.ps1
 
-.\Install-k8s-windows.ps1 -k8sversion v1.19.5 | Out-Null
+.\Install-k8s-windows.ps1 -k8sversion v1.23.4 | Out-Null
 
 # Install K8s on Windows node 2
 curl.exe -LO https://raw.githubusercontent.com/leandroscardua/Kubernetes-Windows/master/Install-k8s-windows.ps1
 
-.\Install-k8s-windows.ps1 -k8sversion v1.19.5 | Out-Null
+.\Install-k8s-windows.ps1 -k8sversion v1.23.4 | Out-Null
 
 
