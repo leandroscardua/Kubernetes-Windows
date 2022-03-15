@@ -14,8 +14,8 @@ Rename-NetAdapter -Name (Get-NetAdapter -Name * -Physical).Name -NewName "Ethern
 #Uninstall-WindowsFeature Windows-Defender -Remove | Out-Null
 
 # Update the NuGet Module
-Write-Host "Updating The Nuget Package Management"
-Install-PackageProvider -Name NuGet -Force | Out-Null
+#Write-Host "Updating The Nuget Package Management"
+#Install-PackageProvider -Name NuGet -Force | Out-Null
 
 # Install the Windows Feature Containers on the Server
 Write-Host "Installing Windows Containers Feature"
