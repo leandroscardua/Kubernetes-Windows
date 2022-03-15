@@ -1,7 +1,9 @@
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
 
-[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
+[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
+Register-PSRepository -Default -Verbose
+Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 Write-Host "Rename the network interface to Ethernet"
 # Rename network interface to Ethernet
