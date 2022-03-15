@@ -17,7 +17,7 @@ Rename-NetAdapter -Name (Get-NetAdapter -Name * -Physical).Name -NewName "Ethern
 # Update the NuGet Module
 Write-Host "Updating The Nuget Package Management"
 #Install-PackageProvider -Name NuGet -Force | Out-Null
-#Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force | Out-Null
+Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force | Out-Null
 
 # Install the Windows Feature Containers on the Server
 Write-Host "Installing Windows Containers Feature"
