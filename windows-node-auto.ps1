@@ -3,8 +3,8 @@ $ProgressPreference = 'SilentlyContinue'
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 #Register-PSRepository -Default -Verbose
-Register-PSRepository -Name PSGallery -SourceLocation https://www.powershellgallery.com/api/v2/
-Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
+Register-PSRepository -Name PSGallery -SourceLocation https://www.powershellgallery.com/api/v2/ | Out-Null
+Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted | Out-Null
 
 Write-Host "Rename the network interface to Ethernet"
 # Rename network interface to Ethernet
@@ -17,7 +17,7 @@ Rename-NetAdapter -Name (Get-NetAdapter -Name * -Physical).Name -NewName "Ethern
 # Update the NuGet Module
 Write-Host "Updating The Nuget Package Management"
 #Install-PackageProvider -Name NuGet -Force | Out-Null
-Istall-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force | Out-Null
+Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force | Out-Null
 
 # Install the Windows Feature Containers on the Server
 Write-Host "Installing Windows Containers Feature"
