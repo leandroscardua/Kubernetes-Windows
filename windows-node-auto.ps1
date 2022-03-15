@@ -3,8 +3,8 @@ $ProgressPreference = 'SilentlyContinue'
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 #Register-PSRepository -Default -Verbose
-Register-PSRepository -Name PSGallery -SourceLocation https://www.powershellgallery.com/api/v2/ | Out-Null
-Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted | Out-Null
+#Register-PSRepository -Name PSGallery -SourceLocation https://www.powershellgallery.com/api/v2/ | Out-Null
+#Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted | Out-Null
 
 Write-Host "Rename the network interface to Ethernet"
 # Rename network interface to Ethernet
