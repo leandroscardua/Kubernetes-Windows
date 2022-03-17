@@ -14,6 +14,12 @@ Rename-NetAdapter -Name (Get-NetAdapter -Name * -Physical).Name -NewName "Ethern
 # Uninstall Windows Defender
 #Uninstall-WindowsFeature Windows-Defender -Remove | Out-Null
 
+Write-Host "Disabiling Windows Firewall"
+Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled false | Out-Null
+
+Write-Host "Disabiling Windows Defender"
+Set-MpPreference -DisableRealtimeMonitoring $true -DisableScriptScanning $true -DisableArchiveScanning $true -ExclusionPath c:\var,c:\etc,c:\k | Out-Null
+
 # Update the NuGet Module
 Write-Host "Updating The Nuget Package Management"
 #Install-PackageProvider -Name NuGet -Force | Out-Null
