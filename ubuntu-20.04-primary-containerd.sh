@@ -1,6 +1,6 @@
 sudo hostnamectl set-hostname k8s-primary
 
-sudo apt-get update && sudo apt upgrade -y && sudo apt install -y apt-transport-https ca-certificates curl software-properties-common gnupg libseccomp2
+sudo apt-get update && sudo apt install -y apt-transport-https ca-certificates curl software-properties-common gnupg libseccomp2
 
 # netfilter and everlay
 sudo modprobe br_netfilter
