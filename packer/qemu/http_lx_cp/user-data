@@ -1,0 +1,33 @@
+#cloud-config
+autoinstall:
+  version: 1
+  locale: en_US
+  keyboard:
+    layout: en
+    variant: us
+  storage:
+    layout:
+      name: lvm
+    swap:
+      size: 0
+  package_update: true
+  package_upgrade: true
+  identity:
+    hostname: lx-cp
+    username: rancher
+    password: $6$rounds=4096$8dkK1P/oE$2DGKKt0wLlTVJ7USY.0jN9du8FetmEr51yjPyeiR.zKE3DGFcitNL/nF1l62BLJNR87lQZixObuXYny.Mf17K1
+  ssh:
+    install-server: yes
+    allow-pw: true
+  user-data:
+    disable_root: false
+    packages:
+     - qemu-guest-agent
+    runcmd:
+     - systemctl start qemu-guest-agent
+     - [ bash, curl --insecure -fL https://192.168.122.99/system-agent-install.sh | sudo  sh -s - --server https://192.168.122.99 --label 'cattle.io/os=linux' --token bxb8l9kgf6rhgqh8n5ssg74hrdkpqs6tljt52fr5sj44n9m458f4g2 --ca-checksum 7e44245e44b36ac391d7598b345cb7486e59f9a0ebacc0d5cefe0e17c896ae5f --etcd --controlplane --worker ]
+     - reboot
+  late-commands:
+    - sed -i 's/^#*\(send dhcp-client-identifier\).*$/\1 = hardware;/' /target/etc/dhcp/dhclient.conf
+    - 'sed -i "s/dhcp4: true/&\n      dhcp-identifier: mac/" /target/etc/netplan/00-installer-config.yaml'
+    - poweroff
