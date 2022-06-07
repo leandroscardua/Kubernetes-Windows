@@ -1,0 +1,33 @@
+{
+  "builders": [
+    {
+      "type": "qemu",
+      "iso_checksum": "none",
+      "iso_url": "https://releases.ubuntu.com/20.04.3/ubuntu-20.04.3-live-server-amd64.iso",
+
+      "http_directory": "http_lx_wk",
+      "output_directory": "output_lx_wk",
+      "vm_name": "lx-wk",
+      "format": "qcow2",
+      "cpus": "2",
+      "memory": "8196",
+      "accelerator": "kvm",
+      "boot_wait": "2s",  
+      "boot_command": [
+        "<enter><enter><f6><esc><wait> ",
+        "autoinstall net.ifnames=0 biosdevname=0 ip=dhcp ipv6.disable=1 ds=nocloud-net;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ ",
+        "<enter>"
+      ],
+      "shutdown_command": "echo 'ubuntu' | sudo -S shutdown -P now",
+      "shutdown_timeout": "20m",
+      "net_device": "virtio-net",
+      "communicator": "none",
+      "disk_size": "40960M",
+      "disk_image": "false",
+      "disk_interface": "virtio",
+      "disk_compression": "true"
+
+    }
+  ]
+
+}
