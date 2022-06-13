@@ -1,5 +1,10 @@
 # Enable Download
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+Write-Host "Rename the network interface to Ethernet"
+# Rename network interface to Ethernet
+Rename-NetAdapter -Name (Get-NetAdapter -Name * -Physical).Name -NewName "Ethernet"
+
 $tagcd = (Invoke-WebRequest -UseBasicParsing "https://api.github.com/repos/containerd/containerd/releases/latest" | ConvertFrom-Json)[0].tag_name
 $lvcd = $tagcd -replace "v",""
 
