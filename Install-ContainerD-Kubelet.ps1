@@ -24,3 +24,7 @@ curl.exe -L https://raw.githubusercontent.com/kubernetes-sigs/sig-windows-tools/
 Write-Host "Installing kubernetes version: $lvk8s"
 c:\Windows\Temp\PrepareNode.ps1 -KubernetesVersion "$tagk8s" -ContainerRuntime "ContainerD"
 # https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/adding-windows-nodes/#install-wins-kubelet-and-kubead
+
+pause
+
+Write-Host "Please, Hit enter to reboot the server to complete the configuration"
